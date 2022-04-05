@@ -1,0 +1,18 @@
+.note{
+    min-width: 240px;
+    height: fit-content;
+    padding: 1rem;
+    border-radius: 8px;
+}
+
+.note_content{
+    text-align: left;
+}
+
+.note_footer{
+    padding-top: 2rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+
