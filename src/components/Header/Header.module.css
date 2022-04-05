@@ -10,7 +10,7 @@
     position: sticky;
     top: 0;
     z-index: 3;
-    grid-area: 'navbar';
+    grid-area: navbar;
 }
 
 .Navbar_brand{
