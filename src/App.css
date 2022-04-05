@@ -1,51 +1,54 @@
+@import url("https://iridescent.netlify.app/stylesheets/index.css");
+
+
+:root{
+  --CARD_BG : hsla(0, 0%, 100%,1);
+  --TEXT : hsla(0, 0%, 0%,1);
+  --GREY_TEXT : var(--component-grey-04);
+  --HOVER_BG : transparent;
+  --HOVER_BG_ACTIVE : hsla(0, 0%, 80%, 0.30);
+  --BORDER:2px solid var(--component-grey-01);
+}
+
 .App {
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #22201c;
+  font-family: 'Manrope', sans-serif;
+  min-width: 100vw;
+  background-color:var(--CARD_BG) ;
+  color: var(--TEXT);
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  color: white;
+  height: fit-content;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 7rem auto;
+  grid-template-areas: 
+  "navbar"
+  "content";
 }
 
-.App-link {
-  color: #61dafb;
+
+.transparent-btn{
+  background-color: transparent;
+  border: 0px;
 }
 
-.brand-title {
-  font-size: 3rem;
-  color: #d9d9d9;
+.btn_action{
+  width: 3rem;
+  height: 3rem;
+  background-color: var(--HOVER_BG);
+  color: var(--TEXT);
+  border-radius: 50px;
 }
 
-.brand-title span {
-  color: #ffde59;
+.btn_action:hover{
+  width: 3rem;
+  height: 3rem;
+  background-color: var(--HOVER_BG_ACTIVE);
+  color: var(--TEXT);
+  border: var(--BORDER);
 }
 
-.brand-description {
-  font-size: 1.4rem;
-}
-
-.links {
-  display: flex;
-}
-
-.links a {
-  color: #d9d9d9;
-  font-size: 1.2rem;
-  margin: 1rem;
+.content{
+  grid-area: content;
+  width: 100%;
 }

@@ -1,8 +1,16 @@
 import "./App.css";
-import logo from "./logo.png";
+import { Header } from "./components";
+import Router from "./utils/Router";
+import { ToastContainer } from "react-toastify";
 
 function App() {
-  return <div className="App"></div>;
+  return (
+    <div className="App">
+      <Header />
+      <Router />
+      <ToastContainer />
+    </div>
+  );
 }
 
 export default App;
