@@ -1,0 +1,133 @@
+/* Sign Up Styles */
+
+.auth_content {
+    background-color: var(--white);
+}
+
+.glass__form {
+    margin: 2rem;
+    padding: 2rem;
+}
+
+.glass__input {
+    background-color: var(--component-grey-01);
+    color: var(--black);
+    font-weight: 500;
+}
+
+.glass__input::placeholder {
+    color: var(--component-grey-05);
+}
+.glass__btn {
+    width: 21.5rem;
+    transition: all cubic-bezier(0.4, 0, 0.2, 1) 350ms;
+    border: 2px solid transparent;
+}
+
+.glass__btn:hover {
+    border: none;
+    transition: all cubic-bezier(0.4, 0, 0.2, 1) 350ms;
+}
+
+.glass__btn_1:hover {
+    color: var(--component-blue-05);
+    border: 2px solid var(--component-grey-01);
+}
+
+.glass__btn_2 {
+    background-color: var(--white);
+    color: var(--component-blue-05);
+    border: 2px solid var(--component-grey-01);
+}
+
+.glass__btn_2:hover {
+    color: var(--white);
+    border: 2px solid var(--component-grey-01);
+}
+
+.glass__form__wrapper {
+    background-color: var(--white);
+    margin: 1rem auto;
+    max-width: max-content;
+    min-width: fit-content;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.text__terms {
+    width: 60%;
+}
+
+.glass__form__image {
+    border-radius: 50%;
+    margin: 1rem auto;
+    width: 37.5rem;
+    height: 37.5rem;
+    min-height: 15rem;
+    min-width: 15rem;
+}
+
+.glass__form__image img {
+    width: 75%;
+    height: 75%;
+    border-radius: 50%;
+}
+
+
+
+.glass__input__options {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 100%;
+    width: inherit;
+}
+
+.glass__form__input {
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 10px;
+}
+
+.glass__input__guest{
+    background-color: transparent;
+    border: transparent;
+    color: var(--component-indigo-04);
+}
+
+.error_msg{
+    color: var(--component-red-04);
+    font-weight: bold;
+}
+
+.passwordIcon{
+    top: 0px;
+    right: 0px;
+}
+
+@media only screen and (max-width:1300px){
+    .glass__form__image{
+        display: none
+    }
+    .glass__form {
+        margin: 0;
+        padding: 0;
+    }
+    .auth_content{
+        grid-template-columns: 1fr;
+    }    
+}
+
+@media only screen and (max-width:768px){
+    .glass__form__image{
+        display: none
+    }
+    .glass__form {
+        margin: 0;
+        padding: 0;
+    }
+    .auth_content{
+        grid-template-columns: 1fr;
+    }
+    
+}
