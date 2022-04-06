@@ -42,7 +42,7 @@ export default function Login() {
   };
 
   const pwdVisibiltyHandler = () => {
-    setShowPassword(!showPassword);
+    setShowPassword(() => !showPassword);
   };
   const submitHandler = (e) => {
     e.preventDefault();

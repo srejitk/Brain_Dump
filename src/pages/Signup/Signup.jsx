@@ -38,7 +38,7 @@ export default function Signup() {
     }
   };
   const pwdVisibiltyHandler = () => {
-    setShowPassword(!showPassword);
+    setShowPassword(() => !showPassword);
   };
 
   const submitHandler = (e) => {

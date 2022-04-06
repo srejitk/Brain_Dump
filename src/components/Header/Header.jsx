@@ -9,10 +9,9 @@ export default function Header() {
   const { isLogged, logoutHandler } = useAuth();
 
   const optionHandler = () => {
-    setShowOption(!showOption);
+    setShowOption(() => !showOption);
   };
 
-  console.log(showOption);
   return (
     <div
       className={`flex-row-wrap position-relative box-shadow ${styles.Navbar}`}
