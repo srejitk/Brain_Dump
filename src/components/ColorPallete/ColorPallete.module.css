@@ -1,0 +1,19 @@
+.ColorPallete {
+  gap: 20px;
+  padding: 0.75rem;
+  border-radius: 8px;
+  background-color: var(--CARD-BG);
+  border: 2px solid var(--component-grey-01);
+  margin-top: 00.75rem;
+  width: 50%;
+}
+
+.pallete_selector {
+  width: 100%;
+  justify-content: space-around;
+}
+.color {
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50px;
+}
