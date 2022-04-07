@@ -1,15 +1,16 @@
 import React from "react";
 import styles from "./Header.module.css";
+import { useState } from "react";
 import { Link } from "react-router-dom";
-import { useState } from "react/cjs/react.development";
 import { useAuth } from "../../contexts/Auth/AuthContext";
+import { useNote } from "../../contexts/Note/NoteContext";
 
 export default function Header() {
-  const [showOption, setShowOption] = useState(false);
   const { isLogged, logoutHandler } = useAuth();
+  const { sidebar, setSidebar } = useNote();
 
-  const optionHandler = () => {
-    setShowOption(() => !showOption);
+  const handleSidebar = (e) => {
+    setSidebar(!sidebar);
   };
 
   return (
@@ -17,7 +18,9 @@ export default function Header() {
       className={`flex-row-wrap position-relative box-shadow ${styles.Navbar}`}
     >
       <div className={`flex-row-wrap gap20 ${styles.Navbar_brand}`}>
-        <span className="material-icons">menu</span>
+        <button onClick={(e) => handleSidebar(e)} className="btn  ">
+          <span className="material-icons">menu</span>
+        </button>
 
         <Link to="/" className={`flex-row-wrap gap20 ${styles.Navbar_brand}`}>
           <div className={`flex-mid-center ${styles.logo_container}`}>
@@ -40,11 +43,7 @@ export default function Header() {
           >
             Logout
           </Link>
-          <Link
-            to="/"
-            className={`btn_action btn btn--small`}
-            onClick={optionHandler}
-          >
+          <Link to="/" className={`btn_action btn btn--small`}>
             <span className="material-icons">face</span>
           </Link>
         </div>
