@@ -1,0 +1,6 @@
+.trashpage_container {
+  margin: 1rem auto;
+  padding: 1rem;
+  width: 100vw;
+  grid-area: content;
+}

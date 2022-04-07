@@ -1,0 +1,46 @@
+.emptyState_Container {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  width: 344px;
+  height: 328px;
+}
+
+.icon_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.iconBg {
+  height: 120px;
+  width: 120px;
+  background-color: var(--PRIMARY_LIGHT);
+  border-radius: 50px;
+  margin-bottom: 1.5rem;
+}
+
+.state_icon {
+  font-size: 66px;
+  color: var(--PRIMARY);
+}
+
+h6 {
+  margin-top: 1rem;
+  color: var(--TEXT_LIGHT);
+}
+
+.stateBtn {
+  margin-top: 1rem;
+  background-color: var(--PRIMARY_DARK);
+  font-size: large;
+  font-weight: 700;
+  color: var(--TEXT);
+  border: 2px solid transparent;
+}
+
+.stateBtn:hover {
+  background-color: var(--STATE_LOGO);
+  border: 2px solid var(--PRIMARY_DARK);
+}
