@@ -1,42 +1,90 @@
 import React from "react";
+import { useNote } from "../../contexts/Note/NoteContext";
+import ColorPallete from "../ColorPallete/ColorPallete";
 import { NoteCard, Editor } from "../index";
+import LabelSelector from "../LabelSelector/LabelSelector";
+import Sidebar from "../Sidebar/Sidebar";
 import styles from "./HomePage.module.css";
 
 export default function HomePage() {
-  const note = {
-    title: "Helo",
-    body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum ipsam natus ullam, quos odit libero facere ex enim voluptatem, blanditiis, quisquam aliquam et. Similique ad odit rem ex placeat dicta.",
+  const initialData = {
+    title: "",
+    notes: "",
+    color: "white",
+    isEdited: false,
+    isPinned: false,
+    label: "New",
+    timestamp: new Date().toLocaleDateString(),
   };
+  const {
+    noteState,
+    noteDispatch,
+    addNote,
+    updateNote,
+    note,
+    setNote,
+    isEdited,
+  } = useNote();
+  const { notes } = noteState;
+  const { color } = note;
+
+  const inputHandler = (e) => {
+    const { name, value } = e.target;
+    setNote({ ...note, [name]: value });
+  };
+  console.log(note);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    note.isEdited
+      ? updateNote(note, noteDispatch)
+      : addNote(note, noteDispatch);
+    console.log(note);
+    setNote(initialData);
+  };
+
   return (
     <div
       className={`${styles.homepage_container} content flex-column-wrap flex-mid-center `}
     >
-      <form className={`${styles.newNote} box-shadow`}>
+      <form className={`${styles.newNote} box-shadow`} onSubmit={handleSubmit}>
         <input
           type="text"
+          name="title"
+          onChange={(e) => inputHandler(e)}
+          value={note.title}
           placeholder="Take a note..."
           className={`${styles.titleInput} box-shadow `}
+          required
         />
-        <Editor />
+        <Editor
+          value={note.notes}
+          func={(e) => setNote({ ...note, notes: e })}
+        />
         <button
           className={`${styles.pinNote} transparent-btn  flex-mid-center position-absolute`}
         >
           <span className="material-icons">push_pin</span>
         </button>
+
         <button
-          className={`${styles.addNote} btn btn--small  flex-mid-center position-absolute`}
+          className={`${styles.addNote} btn  btn--primary btn--fab flex-mid-center position-absolute`}
         >
-          Add Note
+          +
         </button>
+        <span
+          className={styles.appliedLabel}
+          style={{ backgroundColor: color }}
+        >
+          {note.label === "Home" ? "" : note.label}
+        </span>
+        <ColorPallete />
+        <LabelSelector />
       </form>
       <div className={`${styles.noteslist} grid`}>
-        <NoteCard note={note} />
-        <NoteCard note={note} />
-        <NoteCard note={note} />
-        <NoteCard note={note} />
-        <NoteCard note={note} />
-        <NoteCard note={note} />
-        <NoteCard note={note} />
+        {notes?.map((note) => (
+          <NoteCard key={note._id} note={note} />
+        ))}
       </div>
     </div>
   );
