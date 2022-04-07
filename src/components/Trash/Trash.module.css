@@ -1,0 +1,17 @@
+.noteslist {
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  width: 85%;
+  margin-top: 2rem;
+  grid-gap: 1rem;
+}
+
+.pageTitle {
+  top: -5rem;
+}
+
+.single_grid {
+  grid-template-columns: 1fr;
+  width: 100vw;
+  margin: 2rem auto;
+  justify-content: center;
+}
