@@ -1,9 +1,11 @@
 import React from "react";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
+import { useNote } from "../../contexts/Note/NoteContext";
 import "./Editor.css";
 
-export default function Editor() {
+export default function Editor({ value, func }) {
+  const { note, setNote } = useNote();
   const modules = {
     toolbar: [
       ["bold", "italic", "underline", "strike"],
@@ -15,5 +17,12 @@ export default function Editor() {
       ["clean"],
     ],
   };
-  return <ReactQuill modules={modules} placeholder="Enter Note..." />;
+  return (
+    <ReactQuill
+      modules={modules}
+      placeholder="Enter Note..."
+      value={value}
+      onChange={func}
+    />
+  );
 }

@@ -1,80 +1,75 @@
 /* Quill Input */
-.ql-container{
-    background-color: red;
+.ql-container {
+  background-color: var(--CARD_BG);
 }
 
-.ql-container.ql-snow{
-    border: none;
+.ql-container.ql-snow {
+  border: none;
 }
 
 .ql-toolbar.ql-snow {
-	display: flex;
-    overflow-x: auto;
-    width: 80%;
-    overflow-y: hidden;
-	border: none;
+  display: flex;
+  overflow-x: auto;
+  width: 100%;
+  overflow-y: hidden;
+  border: none;
 }
 
 /* Entire Parent Quill */
-.quill{
-    background-color: var(--CARD_BG);
-    width: 100%;
-    display: flex;
-    flex-direction: column-reverse;
+.quill {
+  background-color: var(--CARD_BG);
+  width: 100%;
+  display: flex;
+  flex-direction: column-reverse;
 }
 /* Second Parent */
-.ql-snow{
-    background-color: var(--CARD_BG);
+.ql-snow {
+  background-color: var(--CARD_BG);
 }
 
 /* Quill Toolbar */
-.ql-toolbar{
-    background-color: var(--CARD_BG);
-    width: 100%;
-    display: flex;
-
+.ql-toolbar {
+  background-color: var(--CARD_BG);
+  width: 100%;
+  display: flex;
 }
 /* Tool bar ka border */
-.ql-toolbar.ql-snow{
-    border: none;
+.ql-toolbar.ql-snow {
+  border: none;
 }
 
-.ql-toolbar.ql-snow .ql-formats{
-    display: flex;
-    flex-wrap: nowrap;
-    overflow-x: scroll;
-    margin-right: 0;
+.ql-toolbar.ql-snow .ql-formats {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: scroll;
+  margin-right: 0;
 }
 
 /* Tools on Active */
-.ql-toolbar button.ql-active{
-    background-color: hotpink;
-    border-radius: 50px;
+.ql-toolbar button.ql-active {
+  background-color: var(--component-blue-01);
+  border-radius: 50px;
 }
 
-
 /* Strikethrough + Underline,Formatting ka underline and numlist ka 1. */
-.ql-toolbar button .ql-fill{
-    fill: var(--TEXT);
+.ql-toolbar button .ql-fill {
+  fill: var(--TEXT);
 }
 
 /* Button ka color */
-.ql-toolbar button .ql-stroke{
-    stroke: var(--TEXT);
+.ql-toolbar button .ql-stroke {
+  stroke: var(--TEXT);
 }
 
 /* Dropdown name color */
 .ql-picker-label {
-    color: var(--TEXT);   
+  color: var(--TEXT);
 }
 
 .ql-picker-label:hover {
-    color: var(--TEXT);   
+  color: var(--TEXT);
 }
 /* Drop down ka icons */
 .ql-picker-label .ql-stroke {
-    stroke: var(--TEXT);
+  stroke: var(--TEXT);
 }
-
-
-
