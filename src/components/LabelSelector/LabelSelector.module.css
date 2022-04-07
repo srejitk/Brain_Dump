@@ -1,0 +1,23 @@
+.labelSelector {
+  padding: 0.5rem;
+  border-radius: 8px;
+  background-color: var(--CARD-BG);
+  border: 2px solid var(--component-grey-01);
+  margin-top: 00.75rem;
+  width: 50%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.labelInput {
+  width: 60%;
+  border-radius: 8px;
+  border: 2px solid var(--component-grey-01);
+}
+
+.add_label {
+  width: 30px;
+  height: 30px;
+  border-radius: 50px;
+  border: 2px solid var(--component-grey-03);
+}
