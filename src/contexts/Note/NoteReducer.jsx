@@ -7,11 +7,13 @@ export const noteReducer = (state, { type, payload }) => {
   };
   switch (type) {
     case "GET_NOTE":
+    case "ADD_NOTE":
+    case "UPDATE_NOTE":
       return { ...state, notes: payload };
     case "GET_ARCHIVED_NOTES":
+    case "DELETE_ARCHIVED_NOTE":
       return { ...state, archivedNotes: payload };
-    case "ADD_NOTE":
-      return { ...state, notes: payload };
+
     case "DELETE_NOTE":
       return {
         ...state,
@@ -20,8 +22,6 @@ export const noteReducer = (state, { type, payload }) => {
           ...state.pinnedNotes.filter((item) => item._id !== payload._id),
         ],
       };
-    case "UPDATE_NOTE":
-      return { ...state, notes: payload };
     case "ARCHIVE_NOTE":
       return {
         ...state,
@@ -37,8 +37,7 @@ export const noteReducer = (state, { type, payload }) => {
         notes: payload.notes,
         archivedNotes: payload.archives,
       };
-    case "DELETE_ARCHIVED_NOTE":
-      return { ...state, archivedNotes: payload };
+
     case "ADD_TO_TRASH":
       return {
         ...state,

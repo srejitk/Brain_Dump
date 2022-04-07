@@ -39,7 +39,6 @@ export default function HomePage() {
     note.isEdited
       ? updateNote(note, noteDispatch)
       : addNote(note, noteDispatch);
-    console.log(note);
     setNote(initialData);
   };
 
