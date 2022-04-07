@@ -1,4 +1,4 @@
-# WizNotes
+# Brain Dump Notes
 BrainDump is a note taking app.
 Note-taking can be something you do for yourself, or something you do with and for others. It will help you in making your notes and help you organize your day.
 
@@ -29,7 +29,7 @@ Note-taking can be something you do for yourself, or something you do with and f
 - Card color change
 
 ## Live link
-[Brain Dump](https://brain_dump.vercel.app/)
+[Brain Dump](https://brain-dump-notes.vercel.app/)
 
 ## How to run app locally
 - git clone https://github.com/srejitk/Brain_Dump/.git
