@@ -98,7 +98,7 @@ const NoteProvider = ({ children }) => {
       if (status === 200) {
         Toast({ message: "Note Deleted.", type: "success" });
         noteDispatch({ type: "DELETE_NOTE", payload: data.notes });
-        noteDispatch({ type: "ADD_TO_TRASH", payload: data.notes });
+        noteDispatch({ type: "ADD_TO_TRASH", payload: note });
       }
     } catch (error) {
       Toast({ message: "Couldn't Delete Note", type: "error" });
@@ -125,6 +125,7 @@ const NoteProvider = ({ children }) => {
   };
 
   const archiveNote = async (note, noteDispatch) => {
+    console.log(note);
     try {
       const response = await axios.post(
         `/api/notes/archives/${note._id}`,
