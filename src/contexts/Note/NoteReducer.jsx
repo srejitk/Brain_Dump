@@ -47,6 +47,13 @@ export const noteReducer = (state, { type, payload }) => {
           ...state.pinnedNotes.filter((Item) => Item._id !== payload._id),
         ],
       };
+    case "DELETE_FROM_TRASH":
+      return {
+        ...state,
+        trashedNotes: [
+          state.trashedNotes.filter((note) => note._id != payload._id),
+        ],
+      };
     case "PIN_NOTE":
       return {
         ...state,

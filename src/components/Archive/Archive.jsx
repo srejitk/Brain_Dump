@@ -7,7 +7,6 @@ import styles from "./Archive.module.css";
 export default function Archive() {
   const { noteState } = useNote();
   const { archivedNotes } = noteState;
-
   return (
     <div
       className={`${styles.noteslist} grid position-relative ${

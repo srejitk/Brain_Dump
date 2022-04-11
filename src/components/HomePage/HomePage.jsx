@@ -32,14 +32,12 @@ export default function HomePage() {
     const { name, value } = e.target;
     setNote({ ...note, [name]: value });
   };
-  console.log(note);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     note.isEdited
       ? updateNote(note, noteDispatch)
       : addNote(note, noteDispatch);
-    console.log(note);
     setNote(initialData);
   };
 

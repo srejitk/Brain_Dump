@@ -12,7 +12,6 @@ export default function ColorPallete() {
     `var(--component-green-02)`,
     `var(--component-yellow-04)`,
   ];
-  console.log(note);
   return (
     <div className={`${styles.ColorPallete} flex-row-wrap box-shadow`}>
       <div className={`${styles.pallete_selector} flex-row-wrap `}>

@@ -80,7 +80,6 @@ const NoteProvider = ({ children }) => {
       );
 
       const { status, data } = response;
-      console.log("caalled");
       if (status === 201) {
         Toast({ message: "Note Added Successfully", type: "success" });
         noteDispatch({ type: "ADD_NOTE", payload: data.notes });

@@ -5,7 +5,6 @@ import styles from "./Sidebar.module.css";
 
 export default function Sidebar() {
   const { sidebar } = useNote();
-  console.log(sidebar);
   return (
     <div
       className={`${styles.sidebar} ${
