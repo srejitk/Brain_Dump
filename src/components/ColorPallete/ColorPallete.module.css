@@ -1,19 +1,55 @@
 .ColorPallete {
   gap: 20px;
-  padding: 0.75rem;
-  border-radius: 8px;
+  border-radius: 50px;
+
   background-color: var(--CARD-BG);
   border: 2px solid var(--component-grey-01);
   margin-top: 00.75rem;
-  width: 50%;
+  width: fit-content;
+
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
 }
 
 .pallete_selector {
-  width: 100%;
-  justify-content: space-around;
+  gap: 10px;
+  width: 3rem;
+  height: fit-content;
+  flex-wrap: nowrap;
+  align-items: center;
 }
 .color {
-  width: 1rem;
-  height: 1rem;
+  width: 2rem;
+  height: 2rem;
+  color: var(--TEXT);
+  font-size: small;
   border-radius: 50px;
+  transform: scale(1);
+  transition: all cubic-bezier(0.445, 0.05, 0.55, 0.95) 250ms;
+}
+
+.color:hover {
+  transform: scale(1.2);
+  transition: all cubic-bezier(0.445, 0.05, 0.55, 0.95) 150ms;
+}
+
+.showSelector {
+  width: 3rem;
+  transition: all cubic-bezier(0.445, 0.05, 0.55, 0.95) 500ms;
+}
+
+.hideSelector {
+  width: 17rem;
+  padding-right: 1rem;
+  transition: all cubic-bezier(0.445, 0.05, 0.55, 0.95) 500ms;
+}
+.showPallete {
+  transform: scale(1);
+  transition: transform cubic-bezier(0.445, 0.05, 0.55, 0.95) 500ms 500ms;
+}
+
+.hidePallete {
+  transform: scale(0);
+  transition: transform cubic-bezier(0.445, 0.05, 0.55, 0.95) 200ms;
 }
