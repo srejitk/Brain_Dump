@@ -1,0 +1,72 @@
+.ColorPallete {
+  gap: 20px;
+  border-radius: 50px;
+  background-color: var(--CARD-BG);
+  border: 2px solid var(--component-grey-01);
+  margin-top: 00.75rem;
+  width: fit-content;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+.pallete_selector {
+  gap: 10px;
+  width: 3rem;
+  height: fit-content;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+.priority {
+  padding: 0.25rem 0.5rem;
+  width: fit-content;
+  border: 1px solid var(--component-grey-05);
+  color: var(--TEXT);
+  font-weight: bold;
+  font-size: small;
+  border-radius: 50px;
+  transform: scale(1);
+  transition: all var(--ANIM) 250ms;
+}
+
+.color:hover {
+  transform: scale(1.2);
+  transition: all var(--ANIM) 150ms;
+}
+
+.showSelector {
+  width: 3rem;
+  transition: all var(--ANIM) 500ms;
+}
+
+.hideSelector {
+  width: 20rem;
+  padding-right: 1rem;
+  transition: all var(--ANIM) 500ms;
+}
+.showPriorities {
+  transform: scale(1);
+  transition: transform var(--ANIM) 500ms 300ms;
+}
+
+.hidePriorities {
+  transform: scale(0);
+  transition: transform var(--ANIM) 300ms;
+}
+
+.active {
+  font-size: small;
+  padding: unset;
+  padding-right: 0.5rem;
+  margin: 0;
+}
+
+.showTick {
+  transform: scale(1);
+  transition: transform var(--ANIM) 300ms;
+}
+
+.hideTick {
+  transform: scale(0);
+  transition: transform var(--ANIM) 300ms;
+}
