@@ -1,0 +1,61 @@
+/* .filterSelector {
+  width: 5rem;
+  padding: 1rem;
+} */
+
+.selector {
+  width: 100%;
+}
+
+.showSort {
+  width: fit-content;
+  min-width: 10rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 8px;
+  height: fit-content;
+  background-color: red;
+}
+
+.hideSort {
+  height: 0px;
+}
+
+.sortlist_container {
+  z-index: 2;
+  top: 260px;
+  width: fit-content;
+  height: fit-content;
+  max-width: 18rem;
+  background-color: var(--CARD_BG);
+  border-radius: 8px;
+  gap: 10px;
+}
+
+.showDropdown {
+  height: 25rem;
+  padding: 0.5rem;
+}
+
+.hideDropdown {
+  height: 0rem;
+  padding: 0;
+}
+
+.sortOption {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  width: 100%;
+  border: 2px solid var(--component-grey-02);
+  padding: 0.2rem 0.75rem;
+  border-radius: 16px;
+}
+
+.showOptions {
+  transform: scale(1);
+}
+
+.hideOptions {
+  transform: scale(0);
+}
