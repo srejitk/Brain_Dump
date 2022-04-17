@@ -1,8 +1,3 @@
-/* .filterSelector {
-  width: 5rem;
-  padding: 1rem;
-} */
-
 .selector {
   width: 100%;
 }
@@ -21,18 +16,20 @@
 }
 
 .sortlist_container {
-  z-index: 2;
-  top: 260px;
+  z-index: 15;
+  top: 4rem;
+  right: 0;
   width: fit-content;
   height: fit-content;
-  max-width: 18rem;
+  min-width: 18rem;
   background-color: var(--CARD_BG);
   border-radius: 8px;
   gap: 10px;
+  justify-content: flex-end;
 }
 
 .showDropdown {
-  height: 25rem;
+  height: 26rem;
   padding: 0.5rem;
 }
 
@@ -48,8 +45,22 @@
   gap: 10px;
   width: 100%;
   border: 2px solid var(--component-grey-02);
-  padding: 0.2rem 0.75rem;
+  padding: 0.75rem 0.75rem;
   border-radius: 16px;
+}
+
+.hideSort {
+  height: 0px;
+}
+
+.showDropdown {
+  height: 25rem;
+  padding: 0.5rem;
+}
+
+.hideDropdown {
+  height: 0rem;
+  padding: 0;
 }
 
 .showOptions {

@@ -16,11 +16,10 @@ export default function SortSelector() {
     setSortForm((prev) => !prev);
   };
   return (
-    <div className={`flex-mid-center ${styles.filterSelector} `}>
-      <div
-        className="btn btn_action btn--small position-relative outline"
-        onClick={sortHandler}
-      >
+    <div
+      className={`flex-mid-center position-relative ${styles.filterSelector} `}
+    >
+      <div className="btn btn_action btn--small " onClick={sortHandler}>
         <span className="material-icons">sort</span>
       </div>
       {
@@ -72,29 +71,6 @@ export default function SortSelector() {
                   })
                 }
                 checked={sortByPriority === "lowtohigh"}
-              />
-            </div>
-          </div>
-          <div
-            className={`${styles.sortOption}  ${
-              sortForm ? styles.showOptions : styles.hideOptions
-            }`}
-          >
-            <span className="material-icons">date_range</span>
-            <div className="flex-row-wrap align--center gap20">
-              <p className="subtitle-1">High Priority</p>
-              <input
-                type="radio"
-                name="SORTBY_PRIORITY"
-                id="oldest"
-                value="High"
-                onChange={(e) =>
-                  filterDispatch({
-                    type: "SORTBY_PRIORITY",
-                    payload: e.target.value,
-                  })
-                }
-                checked={sortByPriority === "High"}
               />
             </div>
           </div>
