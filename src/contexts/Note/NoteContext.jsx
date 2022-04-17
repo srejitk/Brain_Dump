@@ -18,11 +18,12 @@ const NoteProvider = ({ children }) => {
   const initialData = {
     title: "",
     notes: "",
-    color: "white",
+    color: "var(--white)",
     isEdited: false,
     isPinned: false,
-    label: "New",
-    timestamp: new Date().toLocaleDateString(),
+    label: [],
+    timestamp: new Date().toLocaleString(),
+    priority: 3,
   };
 
   const [note, setNote] = useState(initialData);
@@ -30,7 +31,7 @@ const NoteProvider = ({ children }) => {
   const { isLogged } = useAuth();
 
   const [noteState, noteDispatch] = useReducer(noteReducer, {
-    notes: [],
+    noteslist: [],
     archivedNotes: [],
     trashedNotes: [],
     pinnedNotes: [],
@@ -83,6 +84,7 @@ const NoteProvider = ({ children }) => {
       if (status === 201) {
         Toast({ message: "Note Added Successfully", type: "success" });
         noteDispatch({ type: "ADD_NOTE", payload: data.notes });
+        setNote(initialData);
       }
     } catch (error) {
       Toast({ message: "Couldn't add note", type: "error" });
@@ -125,7 +127,6 @@ const NoteProvider = ({ children }) => {
   };
 
   const archiveNote = async (note, noteDispatch) => {
-    console.log(note);
     try {
       const response = await axios.post(
         `/api/notes/archives/${note._id}`,
