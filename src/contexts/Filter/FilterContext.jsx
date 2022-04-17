@@ -1,9 +1,11 @@
 import { useContext, createContext, useReducer } from "react";
 import { useNote } from "../Note/NoteContext";
 import {
-  sortbyLabel,
   sortbyDate,
   sortbyPriority,
+  filterbyColor,
+  filterbyLabel,
+  filterbyPriority,
   Compose,
 } from "./FilterCompose";
 import { FilterReducer } from "./FilterReducer";
@@ -19,6 +21,8 @@ const FilterProvider = ({ children }) => {
   const initialData = {
     sortByPriority: "",
     sortByDate: "",
+    filterByPriority: "",
+    filterByColor: "",
     labelState: [],
   };
   const [filterState, filterDispatch] = useReducer(FilterReducer, initialData);
@@ -27,7 +31,9 @@ const FilterProvider = ({ children }) => {
     filterState,
     sortbyDate,
     sortbyPriority,
-    sortbyLabel
+    filterbyColor,
+    filterbyLabel,
+    filterbyPriority
   )(noteslist);
 
   return (

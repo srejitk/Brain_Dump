@@ -8,9 +8,9 @@ export default function PrioritySelector() {
   const [showForm, setShowForm] = useState(false);
 
   const priorities = [
-    { title: "Low", color: `var(--component-green-01)` },
-    { title: "Medium", color: `var(--component-orange-01)` },
-    { title: "High", color: `var(--component-red-01)` },
+    { title: "Low", value: 3, color: `var(--component-green-01)` },
+    { title: "Medium", value: 2, color: `var(--component-orange-01)` },
+    { title: "High", value: 1, color: `var(--component-red-01)` },
   ];
 
   const clickHandler = () => {
@@ -45,12 +45,12 @@ export default function PrioritySelector() {
                 backgroundColor: priority.color,
               }}
               onClick={() => {
-                setNote({ ...note, priority: priority.title });
+                setNote({ ...note, priority: priority.value });
               }}
             >
               <span
                 className={`${styles.active} ${
-                  note.priority === priority.title
+                  note.priority === priority.value
                     ? styles.showTick
                     : styles.hideTick
                 } material-icons`}
