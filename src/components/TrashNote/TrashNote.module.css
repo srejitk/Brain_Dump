@@ -1,0 +1,53 @@
+.note {
+  min-width: 240px;
+  height: fit-content;
+  padding: 1rem;
+  border-radius: 8px;
+  align-items: flex-start;
+}
+
+.note_content {
+  text-align: left;
+}
+
+.note_title,
+.note_body {
+  width: 100%;
+}
+
+.note_footer {
+  bottom: -20px;
+  gap: 1rem;
+  right: 15px;
+  width: fit-content;
+  height: fit-content;
+  background-color: var(--CARD_BG);
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.appliedLabel {
+  padding: 0.25rem 0.5rem;
+  border-radius: 50px;
+  top: 0px;
+  color: var(--TEXT);
+  font-weight: bold;
+  font-size: small;
+  width: fit-content;
+  border: 1px solid var(--component-grey-05);
+}
+
+.timestamp {
+  display: flex;
+}
+
+.options {
+  top: 10px;
+  right: 20px;
+}
+
+.options:hover {
+  background-color: var(--component-grey-01);
+}
