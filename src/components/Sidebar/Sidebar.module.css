@@ -19,18 +19,17 @@
 }
 
 .sidebarItem {
-  padding-left: 1.5rem;
+  padding: 0.5rem 3rem;
   display: flex;
   align-items: center;
-  border: 2px solid;
-  width: 90%;
-  margin: 0.25rem 0;
+  width: fit-content;
+  margin: 0;
   border-radius: 0 50px 50px 0;
-
   font-weight: bold;
 }
 
-.sidebarActive {
+:global .active {
   background-color: var(--component-yellow-01);
-  color: var(--component-yellow-05);
+  color: var(--black);
+  border: 2px solid var(--component-yellow-05);
 }

@@ -8,6 +8,7 @@
   --HOVER_BG: transparent;
   --HOVER_BG_ACTIVE: hsla(0, 0%, 80%, 0.3);
   --BORDER: 2px solid var(--component-grey-01);
+  --ANIM: cubic-bezier(0.445, 0.05, 0.55, 0.95);
 }
 
 .App {
@@ -67,4 +68,13 @@
   --PRIMARY_DARK: var(--component-blue-04);
   --TEXT: var(--white);
   --TEXT_LIGHT: var(--component-grey-04);
+}
+
+.btn .material-icons-outlined {
+  font-size: 1rem;
+  outline: 0px solid;
+}
+
+input[type="checkbox"] {
+  margin: unset;
 }

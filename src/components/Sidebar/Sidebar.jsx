@@ -11,25 +11,13 @@ export default function Sidebar() {
         sidebar ? "" : styles.hideSidebar
       } box-shadow`}
     >
-      <NavLink
-        to="/"
-        className={`${styles.sidebarItem} ${({ isActive }) =>
-          isActive ? styles.sidebarActive : ""}`}
-      >
+      <NavLink to="/" className={`${styles.sidebarItem}`}>
         <span className="material-icons">home</span>Home
       </NavLink>
-      <NavLink
-        to="/archive"
-        className={`${styles.sidebarItem} ${({ isActive }) =>
-          isActive ? styles.sidebarActive : ""}`}
-      >
+      <NavLink to="/archive" className={`${styles.sidebarItem}`}>
         <span className="material-icons">archive</span>Archive
       </NavLink>
-      <NavLink
-        to="/trash"
-        className={`${styles.sidebarItem} ${({ isActive }) =>
-          isActive ? styles.sidebarActive : ""}`}
-      >
+      <NavLink to="/trash" className={`${styles.sidebarItem}`}>
         <span className="material-icons">mail</span>Trash
       </NavLink>
     </div>

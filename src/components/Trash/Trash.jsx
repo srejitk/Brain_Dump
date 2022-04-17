@@ -1,7 +1,6 @@
-import React from "react";
 import { useNote } from "../../contexts/Note/NoteContext";
 import EmptyState from "../EmptyState/EmptyState";
-import NoteCard from "../Note/Note";
+import TrashNote from "../TrashNote/TrashNote";
 import styles from "./Trash.module.css";
 
 export default function Trash() {
@@ -31,7 +30,7 @@ export default function Trash() {
         </h3>
       )}
       {trashedNotes?.map((note) => (
-        <NoteCard key={note._id} note={note} />
+        <TrashNote key={note._id} note={note} />
       ))}
     </div>
   );

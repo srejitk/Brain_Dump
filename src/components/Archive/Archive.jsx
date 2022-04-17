@@ -1,7 +1,7 @@
 import React from "react";
 import { useNote } from "../../contexts/Note/NoteContext";
 import EmptyState from "../EmptyState/EmptyState";
-import NoteCard from "../Note/Note";
+import NoteCard from "../NoteCard/Note";
 import styles from "./Archive.module.css";
 
 export default function Archive() {
