@@ -1,17 +1,17 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useNote } from "../../contexts/Note/NoteContext";
-import styles from "./Note.module.css";
+import styles from "./ArchiveNote.module.css";
 
-export default function NoteCard({ note }) {
+export default function ArchiveNote({ note }) {
   const { title, notes } = note;
   const {
     noteState,
     setNote,
     noteDispatch,
     deleteNote,
-    updateNote,
     archiveNote,
+    deleteArchivedNote,
     RestoreArchivedNote,
   } = useNote();
 
@@ -42,9 +42,9 @@ export default function NoteCard({ note }) {
           className={`position-absolute ${styles.appliedLabel}`}
           style={{ backgroundColor: color }}
         >
-          {note.label === "Home" ? "" : note.label}
+          {note.label ? "Work" : label}
         </span>
-        {noteState.pinnedNotes.includes(note) ? (
+        {noteState.pinnedNotes?.includes(note) ? (
           <Link
             to="/"
             className={`btn_action btn btn--small`}
@@ -62,7 +62,7 @@ export default function NoteCard({ note }) {
           </Link>
         )}
 
-        {noteState.archivedNotes.includes(note) ? (
+        {noteState.archivedNotes?.includes(note) ? (
           <Link
             to="/"
             className={`btn_action btn btn--small`}

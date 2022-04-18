@@ -18,6 +18,11 @@
   border: none;
 }
 
+.titleSection {
+  justify-content: space-between;
+  width: 70%;
+}
+
 .pinNote {
   top: 15px;
   right: 20px;
@@ -54,4 +59,22 @@
   font-size: small;
   width: fit-content;
   border: 1px solid var(--component-grey-05);
+  cursor: pointer;
+}
+
+.labelContainer {
+  gap: 10px;
+  max-width: 100%;
+  margin-top: 1rem;
+  align-items: center;
+  flex-wrap: nowrap;
+  overflow-x: scroll;
+}
+
+.modules {
+  flex-wrap: nowrap;
+  overflow-x: scroll;
+  width: 100%;
+  height: fit-content;
+  padding: 0.5rem 0;
 }

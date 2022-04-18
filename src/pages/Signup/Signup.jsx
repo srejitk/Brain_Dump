@@ -29,7 +29,6 @@ export default function Signup() {
       if (response.status === 201) {
         setUserData(defaultData);
         navigate("/login");
-        console.log("HOAGAYA");
         localStorage.setItem("Token", response.data.encodedToken);
       }
     } catch (error) {

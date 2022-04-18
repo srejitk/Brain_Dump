@@ -8,7 +8,6 @@
 
 .note_content {
   text-align: left;
-  outline: 2x solid;
 }
 
 .note_title,
@@ -17,8 +16,15 @@
 }
 
 .note_footer {
-  padding-top: 2rem;
+  bottom: -20px;
+  gap: 1rem;
+  right: 15px;
+  width: fit-content;
+  height: fit-content;
+  background-color: var(--CARD_BG);
+  border-radius: 50px;
   display: flex;
+  align-items: center;
   justify-content: space-between;
 }
 
@@ -31,4 +37,17 @@
   font-size: small;
   width: fit-content;
   border: 1px solid var(--component-grey-05);
+}
+
+.timestamp {
+  display: flex;
+}
+
+.options {
+  top: 10px;
+  right: 20px;
+}
+
+.options:hover {
+  background-color: var(--component-grey-01);
 }

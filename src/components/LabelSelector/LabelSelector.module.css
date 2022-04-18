@@ -1,23 +1,54 @@
 .labelSelector {
-  padding: 0.5rem;
-  border-radius: 8px;
+  border-radius: 50px;
   background-color: var(--CARD-BG);
   border: 2px solid var(--component-grey-01);
-  margin-top: 00.75rem;
-  width: 50%;
+  margin-top: 0.75rem;
+  width: 33rem;
   display: flex;
-  justify-content: space-around;
-}
-
-.labelInput {
-  width: 60%;
-  border-radius: 8px;
-  border: 2px solid var(--component-grey-01);
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 10px;
 }
 
 .add_label {
-  width: 30px;
-  height: 30px;
+  padding: unset;
+  padding: 0.25rem 0.5rem;
   border-radius: 50px;
-  border: 2px solid var(--component-grey-03);
+  color: var(--TEXT);
+  font-weight: bold;
+  font-size: small;
+  width: fit-content;
+  height: fit-content;
+  border: 1px solid var(--component-grey-05);
+}
+
+.add_label:hover {
+  width: fit-content;
+  height: fit-content;
+  border: 1px solid var(--component-grey-05);
+}
+
+.showSelector {
+  width: 3.2rem;
+  transition: all cubic-bezier(0.445, 0.05, 0.55, 0.95) 500ms;
+}
+
+.hideSelector {
+  width: 35rem;
+  transition: all cubic-bezier(0.445, 0.05, 0.55, 0.95) 500ms;
+}
+
+.showInput {
+  transform: scale(1);
+  transition: all cubic-bezier(0.445, 0.05, 0.55, 0.95) 500ms 500ms;
+}
+
+.hideInput {
+  transform: scale(0);
+  transition: all cubic-bezier(0.445, 0.05, 0.55, 0.95) 300ms;
+}
+
+.label_icon {
+  padding: unset;
+  padding-right: 0.3rem;
 }
