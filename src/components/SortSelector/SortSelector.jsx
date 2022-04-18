@@ -1,25 +1,31 @@
-import React, { useState } from "react";
+import React from "react";
 import { useFilter } from "../../contexts/Filter/FilterContext";
 import styles from "./SortSelector.module.css";
 
 export default function SortSelector() {
-  const [sortForm, setSortForm] = useState(false);
-
-  const handlerFunction = (event) => {
-    const { value, name } = event.target;
-    setOption(value);
-  };
-  const { filterDispatch, filterState } = useFilter();
-  const { sortByPriority, sortByDate, labelState } = filterState;
+  const {
+    filterDispatch,
+    filterState,
+    sortForm,
+    setSortForm,
+    filterForm,
+    setfilterForm,
+  } = useFilter();
+  const { sortByPriority, sortByDate } = filterState;
 
   const sortHandler = () => {
-    setSortForm((prev) => !prev);
+    if (filterForm) {
+      setfilterForm((prev) => !prev);
+      setSortForm((prev) => !prev);
+    } else {
+      setSortForm((prev) => !prev);
+    }
   };
   return (
     <div
       className={`flex-mid-center position-relative ${styles.filterSelector} `}
     >
-      <div className="btn btn_action btn--small " onClick={sortHandler}>
+      <div className="btn btn_action btn--small outline" onClick={sortHandler}>
         <span className="material-icons">sort</span>
       </div>
       {
@@ -35,7 +41,10 @@ export default function SortSelector() {
           >
             <span className="material-icons">priority_high</span>
             <div className="flex-row-wrap align--center gap20">
-              <p className="subtitle-1">First Priority</p>
+              <div className="flex-column-wrap flex-low-center">
+                <p className="subtitle-1">Priority</p>
+                <p className="subtitle-2 grey-text">By First Priority</p>
+              </div>
               <input
                 type="radio"
                 name="SORTBY_PRIORITY"
@@ -58,7 +67,11 @@ export default function SortSelector() {
           >
             <span className="material-icons">low_priority</span>
             <div className="flex-row-wrap align--center gap20">
-              <p className="subtitle-1">Last Priority</p>
+              <div className="flex-column-wrap flex-low-center">
+                <p className="subtitle-1">Priority</p>
+                <p className="subtitle-2 grey-text">By Last Priority</p>
+              </div>
+
               <input
                 type="radio"
                 name="SORTBY_PRIORITY"
@@ -82,7 +95,10 @@ export default function SortSelector() {
           >
             <span className="material-icons">date_range</span>
             <div className="flex-row-wrap align--center gap20">
-              <p className="subtitle-1">Newest</p>
+              <div className="flex-column-wrap flex-low-center">
+                <p className="subtitle-1">Date</p>
+                <p className="subtitle-2 grey-text">By Last Created</p>
+              </div>
               <input
                 type="radio"
                 name="SORTBY_DATE"
@@ -103,9 +119,12 @@ export default function SortSelector() {
               sortForm ? styles.showOptions : styles.hideOptions
             }`}
           >
-            <span className="material-icons">date_range</span>
+            <span className="material-icons">event</span>
             <div className="flex-row-wrap align--center gap20">
-              <p className="subtitle-1">Oldest</p>
+              <div className="flex-column-wrap flex-low-center">
+                <p className="subtitle-1">Date</p>
+                <p className="subtitle-2 grey-text">By First Created</p>
+              </div>
               <input
                 type="radio"
                 name="SORTBY_DATE"
@@ -120,6 +139,18 @@ export default function SortSelector() {
                 checked={sortByDate === "Oldest"}
               />
             </div>
+          </div>
+          <div
+            className={`${styles.filterOption}  ${styles.clear_btn}  ${
+              sortForm ? styles.showOptions : styles.hideOptions
+            }`}
+          >
+            <button
+              className={` btn btn--link`}
+              onClick={() => filterDispatch({ type: "CLEAR" })}
+            >
+              Clear
+            </button>
           </div>
         </div>
       }

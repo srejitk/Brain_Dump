@@ -8,7 +8,6 @@
   padding: 0.5rem 0.75rem;
   border-radius: 8px;
   height: fit-content;
-  background-color: red;
 }
 
 .hideSort {
@@ -69,4 +68,10 @@
 
 .hideOptions {
   transform: scale(0);
+}
+
+.clear_btn {
+  align-items: flex-end;
+  border: none;
+  justify-content: flex-end;
 }
