@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useNote } from "../../contexts/Note/NoteContext";
 import styles from "./Note.module.css";
-
+import DOMPurify from "dompurify";
 export default function NoteCard({ note }) {
-  const { title, notes, timestamp, color, label, priority } = note;
+  const { title, notes, timestamp, color, label } = note;
   const [options, setOptions] = useState(false);
   const {
     noteState,
@@ -45,7 +45,7 @@ export default function NoteCard({ note }) {
         <p
           className={styles.note_body}
           dangerouslySetInnerHTML={{
-            __html: notes,
+            __html: DOMPurify.sanitize(notes),
           }}
         ></p>
       </div>
@@ -97,7 +97,7 @@ export default function NoteCard({ note }) {
             className={`btn_action btn btn--small`}
             onClick={() => deleteNote(note, noteDispatch)}
           >
-            <span className={`material-icons`}>mail</span>
+            <span className={`material-icons`}>delete</span>
           </Link>
           <Link
             to="/"
@@ -106,17 +106,6 @@ export default function NoteCard({ note }) {
           >
             <span className={`material-icons`}>edit</span>
           </Link>
-          <div className="btn_action btn btn--small">
-            <span
-              className={`material-icons`}
-              style={{
-                backgroundColor: color,
-                color: "var(--TEXT)",
-              }}
-            >
-              {`priority_high`}
-            </span>
-          </div>
         </div>
       }
       {label.map((item) => {
@@ -135,7 +124,7 @@ export default function NoteCard({ note }) {
             className={`${styles.createdDate}`}
             style={{ backgroundColor: color }}
           >
-            {timestamp}
+            {timestamp.slice(0)}
           </span>
         </div>
       </div>
