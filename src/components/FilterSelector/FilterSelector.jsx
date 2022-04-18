@@ -1,17 +1,17 @@
 import React, { useState } from "react";
 import { useFilter } from "../../contexts/Filter/FilterContext";
-import { useNote } from "../../contexts/Note/NoteContext";
 import styles from "./FilterSelector.module.css";
 
 export default function FilterSelector() {
-  const [filterForm, setfilterForm] = useState(false);
-
-  // const handlerFunction = (event) => {
-  //   const { value } = event.target;
-  //   setOption(value);
-  // };
-  const { filterDispatch, filterState } = useFilter();
-  const { filterByPriority } = filterState;
+  const {
+    filterDispatch,
+    filterState,
+    sortForm,
+    setSortForm,
+    filterForm,
+    setfilterForm,
+  } = useFilter();
+  const { filterByPriority, labelState } = filterState;
   const taglist = [
     {
       title: "Todo",
@@ -39,7 +39,12 @@ export default function FilterSelector() {
     { title: "YELLOW", value: `var(--component-yellow-04)` },
   ];
   const filterHandler = () => {
-    setfilterForm((prev) => !prev);
+    if (sortForm) {
+      setSortForm((prev) => !prev);
+      setfilterForm((prev) => !prev);
+    } else {
+      setfilterForm((prev) => !prev);
+    }
   };
   return (
     <div
@@ -148,6 +153,9 @@ export default function FilterSelector() {
                     className={`${styles.add_label}  
                     flex-row-wrap btn btn_action btn--small`}
                   >
+                    <span className={`${styles.label_icon} material-icons`}>
+                      {labelState.includes(tag.title) ? `done` : ""}
+                    </span>
                     {tag.title}
                   </button>
                 ))}

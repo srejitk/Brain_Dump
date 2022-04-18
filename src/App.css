@@ -78,3 +78,7 @@
 input[type="checkbox"] {
   margin: unset;
 }
+
+.grey-text {
+  color: var(--component-grey-03);
+}

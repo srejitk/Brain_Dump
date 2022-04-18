@@ -1,4 +1,4 @@
-import { useContext, createContext, useReducer } from "react";
+import { useContext, createContext, useReducer, useState } from "react";
 import { useNote } from "../Note/NoteContext";
 import {
   sortbyDate,
@@ -17,6 +17,8 @@ const useFilter = () => useContext(FilterContext);
 const FilterProvider = ({ children }) => {
   const { noteState } = useNote();
   const { noteslist } = noteState;
+  const [sortForm, setSortForm] = useState(false);
+  const [filterForm, setfilterForm] = useState(false);
 
   const initialData = {
     sortByPriority: "",
@@ -38,7 +40,15 @@ const FilterProvider = ({ children }) => {
 
   return (
     <FilterContext.Provider
-      value={{ filterState, filterDispatch, filteredNotes }}
+      value={{
+        filterState,
+        filterDispatch,
+        filteredNotes,
+        sortForm,
+        setSortForm,
+        filterForm,
+        setfilterForm,
+      }}
     >
       {children}
     </FilterContext.Provider>
