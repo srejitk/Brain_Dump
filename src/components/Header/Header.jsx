@@ -46,10 +46,10 @@ export default function Header() {
         </div>
       ) : (
         <div className={`flex-row-wrap flex-mid-center gap20`}>
-          <Link to="/login" className="links subtitle-1">
+          <Link to="/login" className="links btn btn_action subtitle-1">
             Sign In
           </Link>
-          <Link to="sign-up" className="links subtitle-1">
+          <Link to="sign-up" className="links btn btn_action subtitle-1">
             Sign Up
           </Link>
         </div>
