@@ -32,7 +32,6 @@
   position: absolute;
   top: 10px;
   padding: 0.5rem 0;
-  background-color: var(--CARD_BG);
   display: flex;
   flex-wrap: nowrap;
   overflow-x: scroll;

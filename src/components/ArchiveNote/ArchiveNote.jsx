@@ -20,7 +20,12 @@ export default function ArchiveNote({ note }) {
       style={{ backgroundColor: `${color}` }}
     >
       <div className={`${styles.note_content} flex-column-wrap flex-top-left`}>
-        <h3 className={styles.note_title}>{title}</h3>
+        <h3
+          style={{ backgroundColor: `${color}` }}
+          className={styles.note_title}
+        >
+          {title}
+        </h3>
         <p
           className={styles.note_body}
           dangerouslySetInnerHTML={{
