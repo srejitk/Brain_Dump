@@ -1,33 +1,40 @@
 import React, { useState } from "react";
 import { useNote } from "../../contexts/Note/NoteContext";
 import styles from "./ColorPallete.module.css";
+import { pallete } from "../../utils/Constants";
 
 export default function ColorPallete() {
-  const { note, setNote } = useNote();
-  const [showForm, setShowForm] = useState(false);
+  const {
+    note,
+    setNote,
+    showLabel,
+    setShowLabel,
+    showPriority,
+    setShowPriority,
+    showColor,
+    setShowColor,
+  } = useNote();
 
-  const pallete = [
-    `var(--white)`,
-    `var(--component-blue-02)`,
-    `var(--component-red-03)`,
-    `var(--component-green-02)`,
-    `var(--component-yellow-04)`,
-  ];
-
-  const clickHandler = () => {
-    setShowForm((prev) => !prev);
+  const clickHandler = (e) => {
+    if (showLabel || showPriority) {
+      setShowPriority(false);
+      setShowLabel(false);
+      setShowColor((prev) => !prev);
+    } else {
+      setShowColor((prev) => !prev);
+    }
   };
   return (
     <div className={`${styles.ColorPallete} flex-row-wrap box-shadow`}>
       <div
         className={`${styles.pallete_selector} ${
-          !showForm ? styles.showSelector : styles.hideSelector
+          !showColor ? styles.showSelector : styles.hideSelector
         } flex-row-wrap `}
       >
         <div
           className="btn_action btn btn--small"
           style={
-            showForm
+            showColor
               ? { backgroundColor: `var(--component-orange-02)` }
               : { backgroundColor: `var(--CARD_BG)` }
           }
@@ -38,21 +45,21 @@ export default function ColorPallete() {
         {pallete.map((color) => {
           return (
             <span
-              key={color}
+              key={color.title}
               className={`${styles.color}  flex-mid-center ${
-                showForm ? styles.showPallete : styles.hidePallete
+                showColor ? styles.showPallete : styles.hidePallete
               } material-icons`}
               style={{
-                backgroundColor: color,
+                backgroundColor: color.value,
                 border:
-                  color === `var(--white)` &&
+                  color.value === `var(--white)` &&
                   `2px solid var(--component-grey-02)`,
               }}
               onClick={() => {
-                setNote({ ...note, color: color });
+                setNote({ ...note, color: color.value });
               }}
             >
-              {note.color === color ? `done` : ""}
+              {note.color === color.value ? `done` : ""}
             </span>
           );
         })}

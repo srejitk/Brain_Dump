@@ -1,32 +1,40 @@
-import React, { useState } from "react";
-import { Icons } from "react-toastify";
+import React from "react";
 import { useNote } from "../../contexts/Note/NoteContext";
 import styles from "./PrioritySelector.module.css";
+import { priorities } from "../../utils/Constants";
 
 export default function PrioritySelector() {
-  const { note, setNote } = useNote();
-  const [showForm, setShowForm] = useState(false);
+  const {
+    note,
+    setNote,
+    showLabel,
+    setShowLabel,
+    showPriority,
+    setShowPriority,
+    showColor,
+    setShowColor,
+  } = useNote();
 
-  const priorities = [
-    { title: "Low", value: 3, color: `var(--component-green-01)` },
-    { title: "Medium", value: 2, color: `var(--component-orange-01)` },
-    { title: "High", value: 1, color: `var(--component-red-01)` },
-  ];
-
-  const clickHandler = () => {
-    setShowForm((prev) => !prev);
+  const clickHandler = (e) => {
+    if (showLabel || showColor) {
+      setShowColor(false);
+      setShowLabel(false);
+      setShowPriority((prev) => !prev);
+    } else {
+      setShowPriority((prev) => !prev);
+    }
   };
   return (
     <div className={`${styles.ColorPallete} flex-row-wrap box-shadow`}>
       <div
         className={`${styles.pallete_selector} ${
-          !showForm ? styles.showSelector : styles.hideSelector
+          !showPriority ? styles.showSelector : styles.hideSelector
         } flex-row-wrap `}
       >
         <div
           className="btn_action btn btn--small"
           style={
-            showForm
+            showPriority
               ? { backgroundColor: `var(--component-blue-02)` }
               : { backgroundColor: `var(--CARD_BG)` }
           }
@@ -39,7 +47,7 @@ export default function PrioritySelector() {
             <div
               key={priority.title}
               className={`${styles.priority}  flex-mid-center ${
-                showForm ? styles.showPriorities : styles.hidePriorities
+                showPriority ? styles.showPriorities : styles.hidePriorities
               }`}
               style={{
                 backgroundColor: priority.color,

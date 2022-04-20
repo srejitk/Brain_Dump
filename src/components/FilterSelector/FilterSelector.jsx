@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useFilter } from "../../contexts/Filter/FilterContext";
 import styles from "./FilterSelector.module.css";
+import { taglist, pallete } from "../../utils/Constants";
 
 export default function FilterSelector() {
   const {
@@ -12,32 +13,7 @@ export default function FilterSelector() {
     setfilterForm,
   } = useFilter();
   const { filterByPriority, labelState } = filterState;
-  const taglist = [
-    {
-      title: "Todo",
-      color: "var(--component-blue-01)",
-    },
-    {
-      title: "Work",
-      color: "var(--component-green-01)",
-    },
-    {
-      title: "Chore",
-      color: "var(--component-yellow-01)",
-    },
-    {
-      title: "Shopping",
-      color: "var(--component-pink-01)",
-    },
-  ];
 
-  const pallete = [
-    { title: "WHITE", value: `var(--white)` },
-    { title: "BLUE", value: `var(--component-blue-02)` },
-    { title: "RED", value: `var(--component-red-03)` },
-    { title: "GREEN", value: `var(--component-green-02)` },
-    { title: "YELLOW", value: `var(--component-yellow-04)` },
-  ];
   const filterHandler = () => {
     if (sortForm) {
       setSortForm((prev) => !prev);
@@ -77,7 +53,7 @@ export default function FilterSelector() {
                 <input
                   type="checkbox"
                   name="FILTERBY_PRIORITY"
-                  id="newest"
+                  id="lowest"
                   value="Low"
                   onChange={(e) =>
                     filterDispatch({
@@ -96,7 +72,7 @@ export default function FilterSelector() {
                 <input
                   type="checkbox"
                   name="FILTERBY_PRIORITY"
-                  id="newest"
+                  id="medium"
                   value="Medium"
                   onChange={(e) =>
                     filterDispatch({
@@ -116,7 +92,7 @@ export default function FilterSelector() {
                 <input
                   type="checkbox"
                   name="FILTERBY_PRIORITY"
-                  id="oldest"
+                  id="high"
                   value="High"
                   onChange={(e) =>
                     filterDispatch({
