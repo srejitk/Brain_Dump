@@ -16,7 +16,7 @@
 }
 
 .filterlist_container {
-  z-index: 15;
+  z-index: 7;
   top: 4rem;
   right: 0;
   width: fit-content;
