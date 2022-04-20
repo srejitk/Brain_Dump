@@ -13,12 +13,14 @@ export default function NoteCard({ note }) {
     deleteNote,
     deleteArchivedNote,
     archiveNote,
-    restoreArchivedNote,
+    showEditor,
+    setShowEditor,
   } = useNote();
 
   const editNote = (note) => {
     setNote({ ...note, isEdited: (note.isEdited = true) });
     setNote(note);
+    setShowEditor((prev) => !prev);
   };
 
   const deleteHandler = (note) => {

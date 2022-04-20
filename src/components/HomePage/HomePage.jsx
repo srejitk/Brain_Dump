@@ -49,15 +49,14 @@ export default function HomePage() {
 
   const pinHandler = (e) => {
     e.preventDefault();
-    setNote({ ...note, isPinned: (prev) => !prev });
+    setNote({ ...note, isPinned: !note.isPinned });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     isEdited ? updateNote(note, noteDispatch) : addNote(note, noteDispatch);
-    setShowEditor((prev) => !prev);
-    setNote({ ...note, isPinned: !note.isPinned });
     setNote(initialData);
+    setShowEditor((prev) => !prev);
   };
 
   const viewEditorHandler = () => {
@@ -136,7 +135,7 @@ export default function HomePage() {
           <button
             onClick={(e) => pinHandler(e)}
             className={`${styles.pinNote} btn btn_action ${
-              note.isPinned ? styles.pinned : ``
+              note.isPinned ? styles.pinned : styles.hidden
             }  flex-mid-center position-absolute`}
           >
             <span
