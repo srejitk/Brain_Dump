@@ -34,7 +34,7 @@
 }
 
 .hideSelector {
-  width: 35rem;
+  width: 25rem;
   transition: all cubic-bezier(0.445, 0.05, 0.55, 0.95) 500ms;
 }
 
