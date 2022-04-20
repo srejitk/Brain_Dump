@@ -23,7 +23,7 @@ export const pages = [
     path: "/archive",
   },
   {
-    title: "Delete",
+    title: "Trash",
     icon: `delete`,
     path: "/trash",
   },

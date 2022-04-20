@@ -17,7 +17,11 @@ export default function Sidebar() {
     >
       <p className={`subtitle-2 ${styles.categoryTitle}`}>PAGES</p>
       {pages.map((page) => (
-        <NavLink to={page.path} className={`${styles.sidebarItem}`}>
+        <NavLink
+          to={page.path}
+          key={page.path}
+          className={`${styles.sidebarItem}`}
+        >
           <span className="material-icons">{page.icon}</span>
           {page.title}
         </NavLink>

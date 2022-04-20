@@ -85,7 +85,10 @@ export default function HomePage() {
           <FilterSelector />
         </div>
       </div>
-      <div className="flex-mid-center flex-column-wrap">
+      <div
+        onClick={viewEditorHandler}
+        className="flex-mid-center flex-column-wrap"
+      >
         <img
           className={`${styles.emptyImage} ${
             !showEditor &&
@@ -105,7 +108,7 @@ export default function HomePage() {
               : styles.hide
           }`}
         >
-          Note this down will you?
+          Note this down, will you?
         </h5>
       </div>
 
