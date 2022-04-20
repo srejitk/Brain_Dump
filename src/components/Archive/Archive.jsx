@@ -1,7 +1,7 @@
 import React from "react";
 import { useNote } from "../../contexts/Note/NoteContext";
 import EmptyState from "../EmptyState/EmptyState";
-import NoteCard from "../NoteCard/Note";
+import ArchiveNote from "../ArchiveNote/ArchiveNote";
 import styles from "./Archive.module.css";
 
 export default function Archive() {
@@ -29,9 +29,10 @@ export default function Archive() {
           {`Archived Notes`}
         </h3>
       )}
-      {archivedNotes?.map((note) => (
-        <NoteCard key={note._id} note={note} />
-      ))}
+      {archivedNotes?.length >= 0 &&
+        archivedNotes?.map((note) => (
+          <ArchiveNote key={note._id} note={note} />
+        ))}
     </div>
   );
 }
