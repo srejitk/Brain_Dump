@@ -82,7 +82,7 @@
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   width: 85%;
   margin-top: 2rem;
-  grid-gap: 1rem;
+  grid-gap: 2.5rem;
 }
 
 .appliedLabel {
@@ -115,6 +115,10 @@
 
 .pinned {
   background-color: var(--HOVER_BG_ACTIVE);
+}
+
+.hidden {
+  background-color: unset;
 }
 
 .showEditor {
@@ -161,7 +165,7 @@
   }
 
   .EditorContainer {
-    height: calc(100vh - 5rem);
+    height: calc(100vh - 9rem);
   }
 
   .newNote {

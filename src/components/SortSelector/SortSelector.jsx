@@ -25,7 +25,10 @@ export default function SortSelector() {
     <div
       className={`flex-mid-center position-relative ${styles.filterSelector} `}
     >
-      <div className="btn btn_action btn--small outline" onClick={sortHandler}>
+      <div
+        className="btn btn_action btn--small grey-outline"
+        onClick={sortHandler}
+      >
         <span className="material-icons">sort</span>
       </div>
       {

@@ -101,6 +101,10 @@ input[type="checkbox"] {
   width: 100%;
 }
 
+.grey-outline {
+  border: 2px solid var(--component-grey-02);
+}
+
 @media only screen and (max-width: 768px) {
   .App {
     grid-template-rows: 9rem auto;

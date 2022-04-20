@@ -27,7 +27,7 @@ export default function FilterSelector() {
       className={`flex-mid-center ${styles.filterSelector} position-relative `}
     >
       <div
-        className="btn btn_action btn--small  outline"
+        className="btn btn_action btn--small grey-outline"
         onClick={filterHandler}
       >
         <span className="material-icons">filter_alt</span>
