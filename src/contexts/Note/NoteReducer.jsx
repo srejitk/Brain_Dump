@@ -37,6 +37,15 @@ export const noteReducer = (state, { type, payload }) => {
         noteslist: payload.notes,
         archivedNotes: payload.archives,
       };
+
+    case "RESTORE_FROM_TRASH":
+      return {
+        ...state,
+        noteslist: [...state.noteslist, payload],
+        trashedNotes: state.trashedNotes.filter(
+          (note) => note._id !== payload._id
+        ),
+      };
     case "DELETE_ARCHIVED_NOTE":
       return { ...state, archivedNotes: payload };
     case "ADD_TO_TRASH":
@@ -50,22 +59,29 @@ export const noteReducer = (state, { type, payload }) => {
     case "DELETE_FROM_TRASH":
       return {
         ...state,
-        trashedNotes: [
-          state.trashedNotes.filter((note) => note._id != payload._id),
-        ],
+        trashedNotes: state.trashedNotes.filter(
+          (note) => note._id !== payload._id
+        ),
+      };
+    case "DELETE_NOTE_FROM_ARCHIVE":
+      return {
+        ...state,
+        archivedNotes: payload.archives,
+
+        trashedNotes: [...state.trashedNotes, payload],
       };
     case "PIN_NOTE":
       return {
         ...state,
         pinnedNotes: [...state.pinnedNotes, payload],
         noteslist: [
-          ...state.noteslist.filter((item) => item._id != payload._id),
+          ...state.noteslist.filter((item) => item._id !== payload._id),
         ],
       };
     case "UNPIN_NOTE":
       return {
         ...state,
-        noteslist: [...state.notes, payload],
+        noteslist: [...state.noteslist, payload],
         pinnedNotes: [
           ...state.pinnedNotes.filter((item) => item._id != payload._id),
         ],
