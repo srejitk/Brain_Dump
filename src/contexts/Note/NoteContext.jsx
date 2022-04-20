@@ -6,6 +6,7 @@ import {
   useEffect,
   useReducer,
 } from "react";
+import { useNavigate } from "react-router-dom";
 import { Toast } from "../../components";
 import { useAuth } from "../Auth/AuthContext";
 import { noteReducer } from "./NoteReducer";
@@ -27,8 +28,14 @@ const NoteProvider = ({ children }) => {
   };
 
   const [note, setNote] = useState(initialData);
+  const { isPinned } = note;
+  const [showLabel, setShowLabel] = useState(false);
+  const [showColor, setShowColor] = useState(false);
+  const [showPriority, setShowPriority] = useState(false);
   const [sidebar, setSidebar] = useState(false);
+  const [showEditor, setShowEditor] = useState(false);
   const { isLogged } = useAuth();
+  const navigate = useNavigate();
 
   const [noteState, noteDispatch] = useReducer(noteReducer, {
     noteslist: [],
@@ -38,16 +45,22 @@ const NoteProvider = ({ children }) => {
   });
 
   const getNotes = async (noteDispatch) => {
-    try {
-      const response = await axios.get("/api/notes", {
-        headers: { authorization: localStorage.getItem("Token") },
-      });
-      const { status, data } = response;
-      if (status === 200) {
-        noteDispatch({ type: "GET_NOTES", payload: data.notes });
+    if (isLogged) {
+      try {
+        const response = await axios.get("/api/notes", {
+          headers: { authorization: localStorage.getItem("Token") },
+        });
+        const { status, data } = response;
+        if (status === 200) {
+          noteDispatch({ type: "GET_NOTES", payload: data.notes });
+        }
+      } catch (error) {
+        Toast({ message: "Couldn't retrieve notes", type: "error" });
+        console.log(error);
       }
-    } catch (error) {
-      console.log("Couldn't retrieve notes", error);
+    } else {
+      Toast({ message: "Please login to continue", type: "error" });
+      navigate("/login");
     }
   };
 
@@ -73,21 +86,30 @@ const NoteProvider = ({ children }) => {
   }, [isLogged]);
 
   const addNote = async (note, noteDispatch) => {
-    try {
-      const response = await axios.post(
-        "/api/notes",
-        { note },
-        { headers: { authorization: localStorage.getItem("Token") } }
-      );
+    if (isLogged) {
+      if (isPinned) {
+        noteDispatch({ type: "PIN_NOTE", payload: note });
+      } else {
+        try {
+          const response = await axios.post(
+            "/api/notes",
+            { note },
+            { headers: { authorization: localStorage.getItem("Token") } }
+          );
 
-      const { status, data } = response;
-      if (status === 201) {
-        Toast({ message: "Note Added Successfully", type: "success" });
-        noteDispatch({ type: "ADD_NOTE", payload: data.notes });
-        setNote(initialData);
+          const { status, data } = response;
+          if (status === 201) {
+            Toast({ message: "Note Added Successfully", type: "success" });
+            noteDispatch({ type: "ADD_NOTE", payload: data.notes });
+            setNote(initialData);
+          }
+        } catch (error) {
+          Toast({ message: "Couldn't add note", type: "error" });
+        }
       }
-    } catch (error) {
-      Toast({ message: "Couldn't add note", type: "error" });
+    } else {
+      Toast({ message: "Please login to continue", type: "error" });
+      navigate("/login");
     }
   };
 
@@ -166,13 +188,9 @@ const NoteProvider = ({ children }) => {
 
   const deleteArchivedNote = async (note, noteDispatch) => {
     try {
-      const response = await axios.delete(
-        `/api/archives/delete/${note._id}`,
-        {},
-        {
-          headers: { authorization: localStorage.getItem("Token") },
-        }
-      );
+      const response = await axios.delete(`/api/archives/delete/${note._id}`, {
+        headers: { authorization: localStorage.getItem("Token") },
+      });
       const { status, data } = response;
       if (status === 200) {
         noteDispatch({ type: "DELETE_ARCHIVED_NOTE", payload: data.archives });
@@ -180,6 +198,7 @@ const NoteProvider = ({ children }) => {
       }
     } catch (error) {
       Toast({ message: "Couldn't Delete Note from Archive", type: "error" });
+      console.log(error);
     }
   };
 
@@ -190,8 +209,16 @@ const NoteProvider = ({ children }) => {
         setNote,
         sidebar,
         setSidebar,
+        showLabel,
+        setShowLabel,
+        showPriority,
+        setShowPriority,
+        showColor,
+        setShowColor,
         noteState,
         noteDispatch,
+        showEditor,
+        setShowEditor,
         addNote,
         deleteNote,
         updateNote,
