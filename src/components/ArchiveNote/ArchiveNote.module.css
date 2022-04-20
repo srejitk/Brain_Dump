@@ -1,9 +1,21 @@
 .note {
-  min-width: 240px;
+  min-width: 15rem;
+  max-height: 15rem;
   height: fit-content;
   padding: 1rem;
   border-radius: 8px;
   align-items: flex-start;
+  margin: 0 1rem 1rem 0;
+}
+
+.enlargeNote {
+  min-height: 15rem;
+  transition: all cubic-bezier(0.445, 0.05, 0.55, 0.95) 500ms;
+}
+
+.defaultNote {
+  min-height: 10rem;
+  transition: all cubic-bezier(0.445, 0.05, 0.55, 0.95) 400ms;
 }
 
 .note_content {
@@ -16,18 +28,61 @@
 }
 
 .note_footer {
-  padding-top: 2rem;
-  display: flex;
+  top: 25%;
+  gap: 0.25rem;
+  right: -25px;
+  height: 65%;
+  overflow-y: scroll;
+  flex-wrap: nowrap;
+  width: fit-content;
+  background-color: var(--CARD_BG);
+  border-radius: 50px;
+  align-items: center;
   justify-content: space-between;
+}
+
+.enlargeOption {
+  transform: scaleY(1);
+  transition: all cubic-bezier(0.445, 0.05, 0.55, 0.95) 500ms 500ms;
+}
+
+.hideOption {
+  transform: scale(0);
+  transition: all cubic-bezier(0.445, 0.05, 0.55, 0.95) 250ms;
 }
 
 .appliedLabel {
   padding: 0.25rem 0.5rem;
   border-radius: 50px;
-  top: 0px;
   color: var(--TEXT);
   font-weight: bold;
   font-size: small;
   width: fit-content;
   border: 1px solid var(--component-grey-05);
+}
+
+.createdDate {
+  padding: 0.25rem 0.5rem 0 0;
+  margin-top: 1rem;
+  border-radius: 50px;
+  top: 0px;
+  right: 0px;
+  color: var(--TEXT);
+  font-weight: bold;
+  font-size: small;
+  width: fit-content;
+}
+
+.options {
+  top: 10px;
+  right: 20px;
+  cursor: pointer;
+}
+
+.options:hover {
+  filter: brightness(0.9);
+}
+
+.info_container {
+  justify-content: space-between;
 }
