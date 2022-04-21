@@ -14,14 +14,14 @@ letting you unleash your notes and do what you need it to do best. Note things d
 ## Technologies Used -
 
 1. ReactJS, CSS, Javascript.
-2. For Styling House Of Glass uses my own CSS Component Libray - "Iridescent" - Github Link: <a href="https://github.com/srejitk/Iridescent">Iridescent</a>
+2. For Styling Brain Dump uses my own CSS Component Libray - "Iridescent" - Github Link: <a href="https://github.com/srejitk/Iridescent">Iridescent</a>
 3. React Router
 4. JWT for authentication
 5. vercel for hosting the website.
 
 ## Use the app:
 
-<p><a href="https://brain-dump.vercel.app/">
+<p><a href="https://note-this.vercel.app/">
    Brain Dump Notes 
   </a></p>
 
