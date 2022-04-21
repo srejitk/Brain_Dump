@@ -52,7 +52,7 @@ export default function Signup() {
         className={`${styles.glass__form} flex-mid-center flex-column-wrap flex-gap20`}
       >
         <h4 className="header-5">Sign Up</h4>
-        <p className="body-1">Join us and get access to exclusive items</p>
+        <p className="body-1">Let's get you started with note making.</p>
         <form
           className={`${styles.glass__form__wrapper}  flex-mid-center br-8 flex-column-wrap`}
           onSubmit={submitHandler}
@@ -135,18 +135,21 @@ export default function Signup() {
             )}
           </div>
           {error && <div className={styles.error_msg}>{error}</div>}
-          <p className="text--terms caption text--center">
+          <p className={`${styles.text__terms} caption text--center`}>
             By signing up you agree to accept all terms and conditions and agree
             to abide by the platform rules
           </p>
           <button
             type="submit"
-            className="btn btn--primary btn--large glass__btn glass__btn-1"
+            className={`btn btn--primary btn--large ${styles.glass__btn} ${styles.glass__btn_1}`}
           >
             Sign up
           </button>
           <p className="subtitle-2">Already a Member?</p>
-          <Link to="/login" className="btn btn--large glass__btn glass__btn-2">
+          <Link
+            to="/login"
+            className={`btn btn--large ${styles.glass__btn} ${styles.glass__btn_2}`}
+          >
             Log In
           </Link>
         </form>
@@ -156,7 +159,7 @@ export default function Signup() {
         className={`${styles.glass__form__image} flex-mid-center position-relative`}
       >
         <img
-          src="https://res.cloudinary.com/dkqrmlxlg/image/upload/v1648996657/House%20Of%20Glass/image-removebg-preview_3_cdpjqp.png"
+          src="https://res.cloudinary.com/dkqrmlxlg/image/upload/v1650572791/Brain%20Dump/Sign_up-cuate_xxqv9x.svg"
           alt="banner-sign-up"
         />
       </div>

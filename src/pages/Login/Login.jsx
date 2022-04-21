@@ -57,9 +57,7 @@ export default function Login() {
         className={`${styles.glass__form} flex-mid-center br-8 flex-column-wrap`}
       >
         <h4 className="header-5">Sign In</h4>
-        <p className="body-1 text--center">
-          Join back and get access to exclusive items
-        </p>
+        <p className="body-1 text--center">Login and get back to your notes.</p>
 
         <form
           className={`${styles.glass__form__wrapper} position-relative flex-mid-center br-8 flex-column-wrap`}
@@ -140,7 +138,7 @@ export default function Login() {
       </div>
       <div className={`${styles.glass__form__image} flex-mid-center`}>
         <img
-          src="https://res.cloudinary.com/dkqrmlxlg/image/upload/v1648996657/House%20Of%20Glass/image-removebg-preview_3_cdpjqp.png"
+          src="https://res.cloudinary.com/dkqrmlxlg/image/upload/v1650572784/Brain%20Dump/Tablet_login-cuate_vtxaao.svg"
           alt="login-hero-illustration"
         />
       </div>
