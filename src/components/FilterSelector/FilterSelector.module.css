@@ -8,7 +8,6 @@
   padding: 0.5rem 0.75rem;
   border-radius: 8px;
   height: fit-content;
-  background-color: red;
 }
 
 .hideSort {
@@ -16,12 +15,12 @@
 }
 
 .filterlist_container {
-  z-index: 15;
+  z-index: 7;
   top: 4rem;
   right: 0;
   width: fit-content;
   height: fit-content;
-  max-width: 18rem;
+  min-width: 18rem;
   background-color: var(--CARD_BG);
   border-radius: 8px;
   gap: 10px;
@@ -29,7 +28,7 @@
 }
 
 .showDropdown {
-  height: 26rem;
+  height: 30rem;
   padding: 0.5rem;
 }
 
@@ -65,6 +64,7 @@
   font-weight: bold;
   font-size: small;
   width: fit-content;
+  flex-wrap: nowrap;
   height: fit-content;
   border: 1px solid var(--component-grey-05);
 }
@@ -77,9 +77,7 @@
 .label_container {
   gap: 10px;
   width: 100%;
-  flex-wrap: nowrap;
   padding: 0.75rem 0.25rem;
-  overflow-x: scroll;
 }
 
 .color_container {
@@ -87,6 +85,7 @@
   width: 100%;
   padding: 1rem 0.25rem;
   justify-content: space-evenly;
+  flex-wrap: inherit;
 }
 
 .label_icon {

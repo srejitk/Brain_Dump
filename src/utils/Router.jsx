@@ -1,6 +1,14 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import { Login, Signup, Mockman, Home, ArchivePage, TrashPage } from "../pages";
+import {
+  Login,
+  Signup,
+  Mockman,
+  Home,
+  ArchivePage,
+  TrashPage,
+  ErrorPage,
+} from "../pages";
 
 export default function Router() {
   return (
@@ -11,6 +19,7 @@ export default function Router() {
       <Route path="/archive" element={<ArchivePage />}></Route>
       <Route path="/trash" element={<TrashPage />}></Route>
       <Route path="/mockman" element={<Mockman />}></Route>
+      <Route path="*" element={<ErrorPage />}></Route>
     </Routes>
   );
 }

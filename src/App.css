@@ -22,7 +22,7 @@
   position: relative;
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 7rem auto;
+  grid-template-rows: 5rem auto;
   grid-template-areas:
     "navbar"
     "content";
@@ -47,6 +47,13 @@
   background-color: var(--HOVER_BG_ACTIVE);
   color: var(--TEXT);
   border: var(--BORDER);
+}
+
+.links {
+  width: fit-content;
+}
+.links:hover {
+  width: fit-content;
 }
 
 .content {
@@ -77,4 +84,29 @@
 
 input[type="checkbox"] {
   margin: unset;
+}
+
+.grey-text {
+  color: var(--component-grey-03);
+}
+
+.p1t {
+  padding-top: 1rem;
+}
+.p3t {
+  padding-top: 3rem;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.grey-outline {
+  border: 2px solid var(--component-grey-02);
+}
+
+@media only screen and (max-width: 768px) {
+  .App {
+    grid-template-rows: 9rem auto;
+  }
 }

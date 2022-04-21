@@ -18,8 +18,8 @@ export default function Header() {
       className={`flex-row-wrap position-relative box-shadow ${styles.Navbar}`}
     >
       <div className={`flex-row-wrap gap20 ${styles.Navbar_brand}`}>
-        <button onClick={(e) => handleSidebar(e)} className="btn  ">
-          <span className="material-icons">menu</span>
+        <button onClick={(e) => handleSidebar(e)} className="btn btn_action ">
+          <span className="material-icons">{sidebar ? `close` : `menu`}</span>
         </button>
 
         <Link to="/" className={`flex-row-wrap gap20 ${styles.Navbar_brand}`}>
@@ -39,20 +39,17 @@ export default function Header() {
           <Link
             to="sign-up"
             onClick={logoutHandler}
-            className="links subtitle-1"
+            className="links  btn btn_action subtitle-1"
           >
             Logout
-          </Link>
-          <Link to="/" className={`btn_action btn btn--small`}>
-            <span className="material-icons">face</span>
           </Link>
         </div>
       ) : (
         <div className={`flex-row-wrap flex-mid-center gap20`}>
-          <Link to="/login" className="links subtitle-1">
+          <Link to="/login" className="links btn btn_action subtitle-1">
             Sign In
           </Link>
-          <Link to="sign-up" className="links subtitle-1">
+          <Link to="sign-up" className="links btn btn_action subtitle-1">
             Sign Up
           </Link>
         </div>

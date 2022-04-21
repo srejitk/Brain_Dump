@@ -1,52 +1,33 @@
 import React, { useState } from "react";
 import { useFilter } from "../../contexts/Filter/FilterContext";
-import { useNote } from "../../contexts/Note/NoteContext";
 import styles from "./FilterSelector.module.css";
+import { taglist, pallete } from "../../utils/Constants";
 
 export default function FilterSelector() {
-  const [filterForm, setfilterForm] = useState(false);
+  const {
+    filterDispatch,
+    filterState,
+    sortForm,
+    setSortForm,
+    filterForm,
+    setfilterForm,
+  } = useFilter();
+  const { filterByPriority, labelState } = filterState;
 
-  // const handlerFunction = (event) => {
-  //   const { value } = event.target;
-  //   setOption(value);
-  // };
-  const { filterDispatch, filterState } = useFilter();
-  const { filterByPriority } = filterState;
-  const taglist = [
-    {
-      title: "Todo",
-      color: "var(--component-blue-01)",
-    },
-    {
-      title: "Work",
-      color: "var(--component-green-01)",
-    },
-    {
-      title: "Chore",
-      color: "var(--component-yellow-01)",
-    },
-    {
-      title: "Shopping",
-      color: "var(--component-pink-01)",
-    },
-  ];
-
-  const pallete = [
-    { title: "WHITE", value: `var(--white)` },
-    { title: "BLUE", value: `var(--component-blue-02)` },
-    { title: "RED", value: `var(--component-red-03)` },
-    { title: "GREEN", value: `var(--component-green-02)` },
-    { title: "YELLOW", value: `var(--component-yellow-04)` },
-  ];
   const filterHandler = () => {
-    setfilterForm((prev) => !prev);
+    if (sortForm) {
+      setSortForm((prev) => !prev);
+      setfilterForm((prev) => !prev);
+    } else {
+      setfilterForm((prev) => !prev);
+    }
   };
   return (
     <div
       className={`flex-mid-center ${styles.filterSelector} position-relative `}
     >
       <div
-        className="btn btn_action btn--small  outline"
+        className="btn btn_action btn--small grey-outline"
         onClick={filterHandler}
       >
         <span className="material-icons">filter_alt</span>
@@ -72,7 +53,7 @@ export default function FilterSelector() {
                 <input
                   type="checkbox"
                   name="FILTERBY_PRIORITY"
-                  id="newest"
+                  id="lowest"
                   value="Low"
                   onChange={(e) =>
                     filterDispatch({
@@ -91,7 +72,7 @@ export default function FilterSelector() {
                 <input
                   type="checkbox"
                   name="FILTERBY_PRIORITY"
-                  id="newest"
+                  id="medium"
                   value="Medium"
                   onChange={(e) =>
                     filterDispatch({
@@ -111,7 +92,7 @@ export default function FilterSelector() {
                 <input
                   type="checkbox"
                   name="FILTERBY_PRIORITY"
-                  id="oldest"
+                  id="high"
                   value="High"
                   onChange={(e) =>
                     filterDispatch({
@@ -148,6 +129,9 @@ export default function FilterSelector() {
                     className={`${styles.add_label}  
                     flex-row-wrap btn btn_action btn--small`}
                   >
+                    <span className={`${styles.label_icon} material-icons`}>
+                      {labelState.includes(tag.title) ? `done` : ""}
+                    </span>
                     {tag.title}
                   </button>
                 ))}

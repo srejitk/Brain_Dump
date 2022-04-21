@@ -1,70 +1,65 @@
-# Getting Started with Create React App
+# Brain Dump.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## A lightweight Notes App.
 
-## Available Scripts
+![Brain Dump](https://res.cloudinary.com/dkqrmlxlg/image/upload/v1649100763/Brain%20Dump/Brain_dlnboa.svg)
 
-In the project directory, you can run:
+Brain Dump is an open source lightweight notes app. It's designed to be easy on the eyes and provide you with a free flowing and non distracting UI,
+letting you unleash your notes and do what you need it to do best. Note things down.
 
-### `yarn start`
+## Test Credentials -
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- Are provided on the Login page. The user can simply login as guest and go through the flow of the app.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Technologies Used -
 
-### `yarn test`
+1. ReactJS, CSS, Javascript.
+2. For Styling House Of Glass uses my own CSS Component Libray - "Iridescent" - Github Link: <a href="https://github.com/srejitk/Iridescent">Iridescent</a>
+3. React Router
+4. JWT for authentication
+5. vercel for hosting the website.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Use the app:
 
-### `yarn build`
+<p><a href="https://brain-dump.vercel.app/">
+   Brain Dump Notes 
+  </a></p>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## How to Install and Run the Project
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Instructions for running this code to your local system.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Open your terminal and copy below code line.
 
-### `yarn eject`
+```
+git clone https://github.com/srejitk/Brain_Dump.git
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+After coping link, paste into terminal and hit enter.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Then run below command . that command install all package that need to run this project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```
+npm install
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+After runing npm command, you need to create a .env file in the root directory.
 
-## Learn More
+and save below value into .env file
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```
+REACT_APP_JWT_SECRET=HERE_YOUR_ANY_STRING_TYPE_FOR_ENCODE
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Now enter below command to run your project.
 
-### Code Splitting
+```
+npm start
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Creator
 
-### Analyzing the Bundle Size
+**Sreejith K**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- <https://twitter.com/srejitk>
+- <https://github.com/srejitk>

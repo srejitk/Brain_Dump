@@ -1,37 +1,80 @@
 .note {
-  min-width: 240px;
-  height: fit-content;
+  min-width: 15rem;
+  min-height: 20rem;
+  height: 20rem;
   padding: 1rem;
   border-radius: 8px;
   align-items: flex-start;
+  margin: 0 1rem 1.5rem 0;
+  width: 100%;
+}
+
+.enlargeNote {
+  min-height: 15rem;
+  transition: all cubic-bezier(0.445, 0.05, 0.55, 0.95) 500ms;
+}
+
+.defaultNote {
+  min-height: 10rem;
+  transition: all cubic-bezier(0.445, 0.05, 0.55, 0.95) 400ms;
 }
 
 .note_content {
   text-align: left;
-}
-
-.note_title,
-.note_body {
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  height: 80%;
   width: 100%;
 }
 
+.note_title {
+  position: absolute;
+  top: 10px;
+  padding: 0.5rem 0;
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: scroll;
+}
+.note_title,
+.note_body {
+  width: 70%;
+}
+
+.note_body {
+  line-clamp: 6;
+  margin-top: 2rem;
+  width: 90%;
+  height: 90%;
+}
+
 .note_footer {
-  bottom: -20px;
-  gap: 1rem;
-  right: 15px;
+  top: 25%;
+  gap: 0.25rem;
+  right: -25px;
+  height: 65%;
+  overflow-y: scroll;
+  flex-wrap: nowrap;
   width: fit-content;
-  height: fit-content;
   background-color: var(--CARD_BG);
   border-radius: 50px;
-  display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+.enlargeOption {
+  transform: scaleY(1);
+  transition: all cubic-bezier(0.445, 0.05, 0.55, 0.95) 500ms;
+}
+
+.hideOption {
+  transform: scale(0);
+  transition: all cubic-bezier(0.445, 0.05, 0.55, 0.95) 250ms;
 }
 
 .appliedLabel {
   padding: 0.25rem 0.5rem;
   border-radius: 50px;
-  top: 0px;
   color: var(--TEXT);
   font-weight: bold;
   font-size: small;
@@ -39,15 +82,28 @@
   border: 1px solid var(--component-grey-05);
 }
 
-.timestamp {
-  display: flex;
+.createdDate {
+  padding: 0.25rem 0.5rem 0 0;
+  margin-top: 1rem;
+  border-radius: 50px;
+  top: 0px;
+  right: 0px;
+  color: var(--TEXT);
+  font-weight: bold;
+  font-size: small;
+  width: fit-content;
 }
 
 .options {
   top: 10px;
   right: 20px;
+  cursor: pointer;
 }
 
 .options:hover {
-  background-color: var(--component-grey-01);
+  filter: brightness(0.9);
+}
+
+.info_container {
+  justify-content: space-between;
 }
