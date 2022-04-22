@@ -28,13 +28,12 @@ export default function HomePage() {
     updateNote,
     note,
     setNote,
-    isEdited,
     isPinned,
     showEditor,
     setShowEditor,
   } = useNote();
 
-  const { title, color, label } = note;
+  const { title, color, label, isEdited } = note;
   const filterLabel = [...label];
 
   const { filteredNotes, filterState } = useFilter();

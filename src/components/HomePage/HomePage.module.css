@@ -182,4 +182,8 @@
     width: 18rem;
     height: 18rem;
   }
+
+  .EditorContainer {
+    height: calc(100vh - 9rem);
+  }
 }
